@@ -1,0 +1,40 @@
+const express = require('express');
+const router = express.Router();
+
+const UserRoutes = require('./UserRoute');
+const LocationRoutes = require('./LocationRoute');
+const PostsRoutes = require('./PostsRoute');
+const AcceptRoutes = require('./AcceptRoute');
+const FriendsRoutes = require('./FriendsRoute');
+const ForumRoutes = require('./ForumRoute');
+const BookMarkRoutes = require('./BookMarkRoute');
+const AuthRoutes = require('./authRoutes');
+const CommentsRoutes = require('./CommentsRoute');
+const BlockRoutes = require('./BlockRoute');
+const ProfileRoutes = require('./ProfileRoute');
+const ReportsRoutes = require('./ReportsRoute');
+const HangoutInvitationRoutes = require('./HangoutInvitationRoute');
+const NotificationRoutes = require('./NotificationRoute');
+const AppealsRoutes = require('./AppealsRoute.js');
+const PostHistoryRoutes = require('./PostHistoryRoute');
+const CheckInRoutes = require('./CheckInRoute');
+
+router.use('/appeals', AppealsRoutes);
+router.use('/users', UserRoutes);
+router.use('/locations', LocationRoutes);
+router.use('/posts', PostsRoutes);
+router.use('/post-history', PostHistoryRoutes);
+router.use('/accept', AcceptRoutes);
+router.use('/checkin', CheckInRoutes);
+router.use('/friends', FriendsRoutes);
+router.use('/auth', AuthRoutes);
+router.use('/forum', ForumRoutes);
+router.use('/bookmark', BookMarkRoutes);
+router.use('/comments', CommentsRoutes);
+router.use('/block', BlockRoutes);
+router.use('/profile', ProfileRoutes);
+router.use('/reports', ReportsRoutes);
+router.use('/hangout-invitations', HangoutInvitationRoutes);
+router.use('/notifications', NotificationRoutes);
+
+module.exports = router;
