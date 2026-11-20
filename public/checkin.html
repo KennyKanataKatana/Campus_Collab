@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Collab - Check-In</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/checkin.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="checkin-page">
+      <section class="checkin-hero">
+        <div>
+          <p class="page-kicker">MY HANGOUTS</p>
+          <h1>Hangout Check-In</h1>
+          <p class="hero-copy">
+            Check in to a hangout you have accepted and keep a record of the campus meetups you
+            attended.
+          </p>
+        </div>
+        <div class="hero-badge" aria-hidden="true">✓</div>
+      </section>
+
+      <section class="checkin-panel" aria-labelledby="newCheckInTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">READY TO ARRIVE?</p>
+            <h2 id="newCheckInTitle">Create a Check-In</h2>
+          </div>
+          <button id="refreshButton" class="secondary-button" type="button">Refresh</button>
+        </div>
+
+        <form id="checkInForm" class="checkin-form">
+          <label for="eligiblePost">Accepted hangout</label>
+
+          <div class="form-row">
+            <select id="eligiblePost" name="post_id" required>
+              <option value="">Loading accepted hangouts...</option>
+            </select>
+
+            <button id="checkInButton" class="primary-button" type="submit">Check In</button>
+          </div>
+
+          <p class="form-help">Only hangouts accepted by your logged-in account are available.</p>
+        </form>
+
+        <div
+          id="checkInMessage"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+          data-testid="checkin-message"
+        ></div>
+      </section>
+
+      <section class="history-section" aria-labelledby="historyTitle">
+        <div class="history-heading">
+          <div>
+            <p class="section-label">YOUR ACTIVITY</p>
+            <h2 id="historyTitle">Completed Check-Ins</h2>
+          </div>
+
+          <div class="filter-wrap">
+            <label for="postIdFilter">Filter by post ID</label>
+            <input id="postIdFilter" type="number" min="1" step="1" placeholder="e.g. 2" />
+          </div>
+        </div>
+
+        <div id="checkInContainer" class="checkin-grid" data-testid="checkin-list"></div>
+      </section>
+    </main>
+
+    <template id="checkInTemplate">
+      <article class="checkin-card" data-testid="checkin-card">
+        <div class="card-top-row">
+          <span class="checked-in-pill">Checked In</span>
+          <span class="post-number"></span>
+        </div>
+
+        <h3 class="post-title"></h3>
+        <p class="post-description"></p>
+
+        <dl class="checkin-details">
+          <div>
+            <dt>Host</dt>
+            <dd class="host-name"></dd>
+          </div>
+
+          <div>
+            <dt>Location</dt>
+            <dd class="location-name"></dd>
+          </div>
+
+          <div>
+            <dt>Participants</dt>
+            <dd class="participant-count"></dd>
+          </div>
+
+          <div>
+            <dt>Checked in</dt>
+            <dd class="checked-in-date"></dd>
+          </div>
+        </dl>
+
+        <button class="cancel-button" type="button">Cancel Check-In</button>
+      </article>
+    </template>
+
+    <script src="js/navbar.js" defer></script>
+    <script src="js/checkin.js" defer></script>
+  </body>
+</html>

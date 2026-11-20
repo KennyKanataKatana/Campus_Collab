@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --sky: #fff5e6;
+  --sun: #ffda3b;
+  --coral: #ff6b35;
+  --mint: #6bffb8;
+  --lavender: #c9aaff;
+  --peach: #ffb347;
+  --tomato: #ff4040;
+  --white: #fffef7;
+  --ink: #1a1a2e;
+  --card-bg: #fffef7;
+  --border-w: 3px;
+  --radius: 20px;
+  --green: #00c878;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-x: hidden;
+  background-color: var(--sky);
+  background-image:
+    radial-gradient(circle at 15% 85%, var(--mint) 0%, transparent 30%),
+    radial-gradient(circle at 85% 10%, var(--lavender) 0%, transparent 30%),
+    radial-gradient(circle at 50% 50%, var(--sun) 0%, transparent 60%);
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%AD%90%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.register-wrapper {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-bg);
+  border: var(--border-w) solid var(--ink);
+  border-radius: var(--radius);
+  padding: 2.5rem 2.5rem 2rem;
+  box-shadow: 10px 10px 0 var(--ink);
+  position: relative;
+  animation: popIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.register-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 16px;
+  right: 16px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--coral) 0px, var(--coral) 20px,
+    var(--sun) 20px, var(--sun) 40px,
+    var(--mint) 40px, var(--mint) 60px,
+    var(--lavender) 60px, var(--lavender) 80px
+  );
+  border-radius: 4px 4px 0 0;
+}
+
+.brand-mark {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.brand-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--coral);
+  letter-spacing: 0.06em;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.register-heading {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  line-height: 1.1;
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.register-heading .highlight {
+  color: var(--coral);
+  position: relative;
+  display: inline-block;
+}
+
+.register-heading .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--sun);
+  border-radius: 3px;
+  z-index: -1;
+}
+
+.register-subheading {
+  font-size: 0.88rem;
+  color: #7a6fa8;
+  text-align: center;
+  margin-bottom: 1.6rem;
+  font-weight: 600;
+}
+
+.step-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: #fff;
+  transition: background 0.3s;
+}
+
+.step-dot.active {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+
+.step-dot.done {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  animation: slideIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.field-group:nth-child(1) { animation-delay: 0.08s; }
+.field-group:nth-child(2) { animation-delay: 0.16s; }
+.field-group:nth-child(3) { animation-delay: 0.24s; }
+.field-group:nth-child(4) { animation-delay: 0.32s; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.field-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.92rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.field-input {
+  background: #fff;
+  border: var(--border-w) solid var(--ink);
+  border-radius: 14px;
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  width: 100%;
+  outline: none;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.field-input::placeholder {
+  color: #c5bfe0;
+  font-weight: 600;
+}
+
+.field-input:focus {
+  border-color: var(--coral);
+  box-shadow: 4px 4px 0 var(--coral);
+  transform: translate(-2px, -2px);
+}
+
+.strength-bar-wrap {
+  height: 5px;
+  background: #e8e0ff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 0.2rem;
+  display: none;
+}
+
+.strength-bar-wrap.visible {
+  display: block;
+}
+
+.strength-bar {
+  height: 100%;
+  border-radius: 10px;
+  width: 0%;
+  transition: width 0.3s, background 0.3s;
+}
+
+.terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: #7a6fa8;
+  font-weight: 600;
+}
+
+.terms-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--coral);
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.terms-row a {
+  color: var(--coral);
+  font-family: 'Fredoka One', cursive;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--coral);
+}
+
+.terms-row a:hover {
+  color: var(--tomato);
+}
+
+.btn-register {
+  margin-top: 0.4rem;
+  background: var(--coral);
+  color: #fff;
+  border: var(--border-w) solid var(--ink);
+  border-radius: 50px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1.5rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+}
+
+.btn-register:hover {
+  background: var(--tomato);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.btn-register:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.warning-card {
+  display: none;
+  margin-top: 0.75rem;
+  border: var(--border-w) solid var(--tomato);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: #fff0f0;
+  box-shadow: 3px 3px 0 var(--tomato);
+  animation: popIn 0.3s ease both;
+}
+
+.warning-card.visible {
+  display: block;
+}
+
+.warning-text {
+  font-size: 0.84rem;
+  color: #cc2222;
+  font-weight: 700;
+  margin: 0;
+}
+
+.login-prompt {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: #7a6fa8;
+  font-weight: 600;
+}
+
+.login-prompt a {
+  color: var(--coral);
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 2px dashed var(--coral);
+  padding-bottom: 1px;
+}
+
+.login-prompt a:hover {
+  color: var(--tomato);
+  border-color: var(--tomato);
+}

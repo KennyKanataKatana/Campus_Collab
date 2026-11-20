@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Hangout Invitations</title>
+
+    <link rel="stylesheet" href="/css/invitations.css" />
+
+    <link rel="stylesheet" href="/css/navbar.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="invitations-page">
+      <div class="invitations-topbar">
+        <div>
+          <h1 class="invitations-title">Hangout Invitations</h1>
+
+          <p class="invitations-subtitle">Invite your friends and manage your hangout requests.</p>
+        </div>
+
+        <button id="open-invite-button" class="invite-friend-btn hidden">+ Invite Friends</button>
+      </div>
+
+      <div id="message-box" class="message-box hidden"></div>
+
+      <div class="invitation-tabs">
+        <button id="received-tab" class="tab-btn active-tab">
+          Received
+
+          <span id="received-count" class="count-badge"> 0 </span>
+        </button>
+
+        <button id="sent-tab" class="tab-btn">
+          Sent
+
+          <span id="sent-count" class="count-badge"> 0 </span>
+        </button>
+
+        <button id="notifications-tab" class="tab-btn">
+          Notifications
+          <span id="notifications-count" class="count-badge">0</span>
+        </button>
+      </div>
+
+      <!-- INVITATION SEARCH AND FILTERS -->
+
+      <div class="invitation-filter-toolbar">
+        <div class="filter-field search-field">
+          <label for="invitation-search"> Search Invitations </label>
+
+          <input type="search" id="invitation-search" placeholder="Search friend or hangout..." />
+        </div>
+
+        <div class="filter-field">
+          <label for="invitation-status-filter"> Status </label>
+
+          <select id="invitation-status-filter">
+            <option value="ALL">All Statuses</option>
+
+            <option value="PENDING">Pending</option>
+
+            <option value="ACCEPTED">Accepted</option>
+
+            <option value="DECLINED">Declined</option>
+
+            <option value="CANCELLED">Cancelled</option>
+
+            <option value="EXPIRED">Expired</option>
+          </select>
+        </div>
+
+        <button type="button" class="reset-filter-btn" id="reset-invitation-filters">
+          Reset Filters
+        </button>
+      </div>
+
+      <p id="filter-result-message" class="filter-result-message">Showing all invitations</p>
+
+      <section id="received-section" class="invitation-container">
+        <h2 class="section-title">Received Invitations</h2>
+
+        <div id="received-container">
+          <div class="invitation-card">Loading invitations...</div>
+        </div>
+      </section>
+
+      <section id="notifications-section" class="invitation-container hidden">
+        <div class="notification-section-header">
+          <h2 class="section-title">Notifications</h2>
+          <button type="button" class="reset-filter-btn" id="mark-notifications-read">
+            Mark all as read
+          </button>
+        </div>
+        <div id="notifications-container">
+          <div class="invitation-card">Loading notifications...</div>
+        </div>
+      </section>
+
+      <section id="sent-section" class="invitation-container hidden">
+        <h2 class="section-title">Sent Invitations</h2>
+
+        <div id="sent-container">
+          <div class="invitation-card">Loading invitations...</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- INVITE FRIEND MODAL -->
+
+    <div id="invite-modal" class="invite-modal hidden">
+      <div class="invite-modal-content">
+        <div class="modal-header">
+          <div>
+            <h2>Invite Friends</h2>
+
+            <p>Select one or more friends to invite.</p>
+          </div>
+
+          <button class="close-btn" id="close-invite-modal" aria-label="Close invite modal">
+            ✕
+          </button>
+        </div>
+
+        <div id="bulk-invite-controls" class="bulk-invite-controls hidden">
+          <label class="select-all-label">
+            <input type="checkbox" id="select-all-friends" />
+
+            <span>Select All</span>
+          </label>
+
+          <span id="selected-friends-count" class="selected-friends-count"> 0 selected </span>
+        </div>
+
+        <div id="invitable-friends-container">
+          <div class="invitation-card">Loading friends...</div>
+        </div>
+      </div>
+
+      <div id="bulk-invite-footer" class="bulk-invite-footer hidden">
+        <button id="bulk-invite-button" class="bulk-invite-btn" disabled>
+          Invite Selected Friends
+        </button>
+      </div>
+    </div>
+
+    <script src="/js/invitations.js"></script>
+
+    <script src="/js/navbar.js" defer></script>
+  </body>
+</html>

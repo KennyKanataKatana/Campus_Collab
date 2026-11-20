@@ -1,0 +1,424 @@
+@import url(
+  'https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap'
+);
+
+:root {
+  --sky: #a8edff;
+  --sun: #ffda3b;
+  --coral: #ff6b6b;
+  --mint: #6bffb8;
+  --lavender: #c9aaff;
+  --peach: #ffb347;
+  --white: #fffef7;
+  --ink: #2d2250;
+  --card-bg: #fffef7;
+  --shadow: #2d2250;
+  --border-w: 3px;
+  --radius: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-x: hidden;
+  background-color: var(--sky);
+  background-image:
+    radial-gradient(
+      circle at 15% 85%,
+      var(--mint) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      var(--lavender) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      var(--sun) 0%,
+      transparent 60%
+    );
+  cursor:
+    url(
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%AD%90%3C/text%3E%3C/svg%3E"
+    ) 16 16,
+    auto;
+}
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: var(--border-w) solid var(--ink);
+  box-shadow: 0 6px 0 var(--ink);
+}
+
+.container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.navbar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 82px;
+  padding: 0.85rem 0;
+}
+
+.navbar-brand {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: var(--coral);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus-visible {
+  transform: rotate(-2deg) scale(1.03);
+  outline: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  /* Bootstrap also defines .navbar-nav and defaults it to a column. */
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 0.55rem 0.95rem;
+  border: var(--border-w) solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    background 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  background: var(--sun);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+  outline: none;
+}
+
+/* ================================
+   INVITATION BELL
+================================ */
+
+.notification-link {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.notification-icon {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 23px;
+  height: 23px;
+  background: #ff4b4b;
+  color: white;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ================================
+   BURGER BUTTON
+================================ */
+
+.burger-button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  background: var(--lavender);
+  border: var(--border-w) solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    background 0.2s;
+}
+
+.burger-button:hover,
+.burger-button:focus-visible {
+  background: #b795f5;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+  outline: none;
+}
+
+.burger-button.has-active-page {
+  background: var(--sun);
+}
+
+.burger-line {
+  width: 23px;
+  height: 3px;
+  background: var(--ink);
+  border-radius: 999px;
+  transition:
+    transform 0.25s,
+    opacity 0.2s;
+}
+
+.burger-button.open .burger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-button.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.open .burger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================================
+   BURGER DROPDOWN
+================================ */
+
+.burger-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(300px, calc(100vw - 2.5rem));
+  padding: 1rem;
+  background: var(--white);
+  border: var(--border-w) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 7px 7px 0 var(--ink);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px) scale(0.97);
+  transform-origin: top right;
+
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0.2s;
+}
+
+.burger-menu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.burger-menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.burger-menu-list li {
+  width: 100%;
+}
+
+.mobile-primary-menu-item {
+  display: none;
+}
+
+.burger-nav-link {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 14px;
+}
+
+.burger-menu-item--home .nav-link,
+.burger-menu-item--forum .nav-link {
+  background: var(--sky);
+}
+
+.burger-menu-item--hangout .nav-link,
+.burger-menu-item--bookmarks .nav-link {
+  background: var(--mint);
+}
+
+.burger-menu-item--friends .nav-link,
+.burger-menu-item--history .nav-link {
+  background: var(--peach);
+}
+
+.burger-menu-item--profile .nav-link {
+  background: var(--lavender);
+}
+
+.burger-menu-item--report .nav-link {
+  background: var(--sun);
+}
+
+.burger-menu-item--logout .nav-link {
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.burger-menu-list .nav-link:hover,
+.burger-menu-list .nav-link:focus-visible,
+.burger-menu-list .nav-link.active {
+  background: #fff;
+}
+
+.logout-button {
+  appearance: none;
+}
+
+/* ================================
+   PAGE CONTENT
+================================ */
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 760px) {
+  .navbar-content {
+    min-height: 74px;
+  }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .main-navbar-nav {
+    display: none;
+  }
+
+  .mobile-primary-menu-item {
+    display: block;
+  }
+
+  .burger-menu-secondary-start {
+    margin-top: 0.2rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--ink);
+  }
+
+  .navbar-right {
+    gap: 0.55rem;
+  }
+
+  .notification-link,
+  .burger-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .navbar-brand {
+    max-width: 145px;
+    white-space: normal;
+    line-height: 1;
+  }
+
+  .guest-navbar-nav {
+    flex-shrink: 0;
+    gap: 0.45rem;
+  }
+
+  .guest-navbar-nav .nav-link {
+    padding: 0.5rem 0.7rem;
+  }
+
+  .burger-menu {
+    right: 0;
+    width: calc(100vw - 1.5rem);
+  }
+}
+
+.burger-menu-item--checkin .nav-link {
+  background: var(--mint);
+}

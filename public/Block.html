@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blocked Users</title>
+
+  <link rel="stylesheet" href="/css/block.css" />
+  <link rel="stylesheet" href="/css/navbar.css" />
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main class="page-container">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Blocked Users 🚫</h1>
+        <p class="page-subtitle">
+          Search and manage blocked users
+        </p>
+      </div>
+    </div>
+
+    <!-- BUTTON (LIKE FRIENDS PAGE) -->
+    <button
+      class="block-btn"
+      onclick="openBlockModal()"
+    >
+      + Block User
+    </button>
+
+    <!-- BLOCKED LIST -->
+    <div class="blocked-list" id="blockedList">
+
+      <div class="empty-state">
+        <h3>Loading blocked users...</h3>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- BLOCK MODAL -->
+  <div id="block-modal" class="search-modal hidden">
+
+    <div class="search-modal-content">
+
+      <div class="modal-header">
+        <h2>Block Users</h2>
+
+        <button class="close-btn"
+          onclick="closeBlockModal()">
+          ✕
+        </button>
+      </div>
+
+      <!-- SEARCH INPUT (FRIENDS STYLE) -->
+      <input
+        type="text"
+        id="search-user"
+        placeholder="Search student name..."
+        onkeyup="searchUsersToBlock()"
+      />
+
+      <div id="search-results"></div>
+
+    </div>
+
+  </div>
+</main>
+
+<script src="/js/navbar.js" defer></script>
+<script src="/js/block.js"></script>
+
+</body>
+</html>

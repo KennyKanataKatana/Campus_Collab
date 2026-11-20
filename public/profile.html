@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Collab - Profile</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="profile-page">
+      <section class="profile-card" data-testid="profile-dashboard">
+        <div class="profile-header">
+          <div>
+            <p class="profile-kicker">My Profile</p>
+            <h1 id="profileName">Student User</h1>
+            <p id="profileEmail">student@ichat.sp.edu.sg</p>
+          </div>
+          <div class="status-pill">Logged In</div>
+        </div>
+
+        <div
+          id="profileMessage"
+          class="profile-message"
+          role="status"
+          data-testid="profile-message"
+        >
+          Loading profile...
+        </div>
+
+        <section class="info-grid">
+          <div class="info-box">
+            <span>Joined On</span>
+            <strong id="joinedDate">-</strong>
+          </div>
+          <div class="info-box">
+            <span>Favourite Location</span>
+            <strong id="favouriteLocation">-</strong>
+          </div>
+        </section>
+
+        <section class="profile-summary-box">
+          <p id="profileSummary">Loading your activity summary...</p>
+        </section>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <h2 id="postsCreated">0</h2>
+            <p>Posts Created</p>
+          </div>
+          <div class="stat-card">
+            <h2 id="hangoutsJoined">0</h2>
+            <p>Accepted Hangouts</p>
+          </div>
+          <div class="stat-card checkin-stat">
+            <h2 id="checkInsCompleted" data-testid="checkin-stat">0</h2>
+            <p>Completed Check-Ins</p>
+          </div>
+          <div class="stat-card">
+            <h2 id="bookmarksSaved">0</h2>
+            <p>Bookmarks Saved</p>
+          </div>
+          <div class="stat-card">
+            <h2 id="friendsCount">0</h2>
+            <p>Friends</p>
+          </div>
+        </section>
+
+        <section class="quick-links">
+          <a href="index.html">Accepted Posts</a>
+          <a href="checkin.html">Check-In</a>
+          <a href="post.html">Browse Hangouts</a>
+          <a href="bookmark.html">Bookmarks</a>
+          <a href="friends.html">Friends</a>
+          <a href="Block.html">Block List</a>
+        </section>
+
+        <button id="logoutButton" type="button">Logout</button>
+      </section>
+    </main>
+
+    <script src="js/navbar.js" defer></script>
+    <script src="js/profile.js" defer></script>
+  </body>
+</html>

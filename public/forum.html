@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Collab — Forum</title>
+  <link href="css/forum.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main>
+    <div class="page-container">
+      <section class="hero-head">
+        <div class="hero-copy">
+          <p class="eyebrow">Campus chat corner</p>
+          <h1 class="page-title">Student <span class="highlight">Forum</span></h1>
+          <p class="page-subtitle">
+            Drop your random thoughts, food reviews, study cries, project rants, and campus questions here.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#createThread" class="btn-action mint">Create</a>
+          <button type="button" id="yourPostsBtn" class="btn-action peach">Your Posts</button>
+          <button type="button" id="friendsOnlyBtn" class="btn-action peach">Friends Only</button>
+        </div>
+      </section>
+
+      <div id="warningCard" class="modal-warning">
+        <p id="warningText"></p>
+      </div>
+
+      <section class="forum-toolbar">
+        <div class="toolbar-left" id="locationFilterBar">
+          <div class="mini-pill active" data-location-id="all">All Locations</div>
+        </div>
+
+        <div class="toolbar-right">
+          <select id="forumSortSelect" class="sort-select">
+            <option value="recent">Most Recent</option>
+            <option value="likes">Most Liked</option>
+            <option value="dislikes">Most Disliked</option>
+          </select>
+
+          <div class="search-box">
+            <input type="text" id="forumSearchInput" placeholder="Search forum..." />
+          </div>
+        </div>
+      </section>
+
+      <section class="forum-layout">
+        <div class="forum-main" id="forumList">
+          <!-- Forum threads will be inserted here by forum.js -->
+        </div>
+
+        <aside class="forum-side">
+          <div class="side-card" id="createThread">
+            <h2 class="side-title">Start a thread</h2>
+            <p class="side-subtitle">Say what’s on your mind. Keep it chill, funny, or useful.</p>
+
+            <form class="thread-form" id="createThreadForm">
+              <label class="field-label" for="threadTitle">Title</label>
+              <input class="field-input" type="text" id="threadTitle" placeholder="Thread title" />
+
+              <label class="field-label" for="threadLocation">Location</label>
+              <select class="field-input field-select" id="threadLocation">
+                <option value="">Select a location</option>
+                <option value="1">SP Library</option>
+                <option value="2">SP Food Court 6</option>
+                <option value="3">SP Food Court 5</option>
+                <option value="4">SP Food Court 4</option>
+                <option value="5">SP Hilltop Heaven</option>
+              </select>
+
+              <label class="field-label" for="threadMsg">Message</label>
+              <textarea class="field-textarea" id="threadMsg" placeholder="Type your message here..."></textarea>
+
+              <label class="field-label" for="threadImageUrl">Image link (optional)</label>
+              <input class="field-input" type="text" id="threadImageUrl" placeholder="https://example.com/photo.jpg" />
+
+              <label class="field-label" for="threadVideoUrl">Video link (optional)</label>
+              <input class="field-input" type="text" id="threadVideoUrl" placeholder="https://example.com/video.mp4 or YouTube link" />
+
+              <button type="submit" class="btn-submit-thread">Post Thread</button>
+            </form>
+          </div>
+
+          <div class="side-card">
+            <h2 class="side-title">Forum rules</h2>
+            <ul class="rules-list">
+              <li>Be nice. No weird harassment.</li>
+              <li>Keep things school-safe.</li>
+              <li>No spam or repeated posts.</li>
+              <li>Use report if something is off.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Campus Collab — <span>Talk, Laugh & Complain</span> together on campus
+  </footer>
+
+  <script src="js/queryCmds.js" type="text/javascript"></script>
+  <script src="js/getCurrentURL.js" type="text/javascript"></script>
+  <script src="js/forum.js" type="text/javascript"></script>
+  <script src="js/navbar.js" defer></script>
+</body>
+</html>

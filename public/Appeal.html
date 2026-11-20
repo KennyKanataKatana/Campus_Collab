@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Collab — Appeal</title>
+  <link href="css/report.css" rel="stylesheet" />
+  <link href="css/appeal.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main>
+    <div class="report-shell">
+      <section class="report-hero">
+        <div class="hero-copy">
+          <span class="hero-chip">Think a decision was wrong?</span>
+          <h1>Submit an Appeal</h1>
+          <p>
+            If you've been muted or reported and believe it was a mistake, explain your side here. An admin will review it.
+          </p>
+        </div>
+
+        <div class="hero-sticker">
+          <span>Appeal</span>
+        </div>
+      </section>
+
+      <div class="appeal-back-row">
+        <a href="report.html" class="btn-refresh">Back to Reports</a>
+      </div>
+
+      <section id="warningCard" class="message-card warning d-none">
+        <p id="warningText"></p>
+      </section>
+
+      <section id="successCard" class="message-card success d-none">
+        <p id="successText"></p>
+      </section>
+
+      <section class="appeal-layout">
+        <div class="report-card large-center-card appeal-card">
+          <div class="card-head center-head">
+            <h2>Appeal Form</h2>
+            <span class="mini-pill">Be Honest</span>
+          </div>
+
+          <form id="appealForm" class="report-form">
+            <div class="form-group">
+              <label for="appealReportId">Which report is this about?</label>
+              <select id="appealReportId" name="appealReportId">
+                <option value="">Not sure / general appeal</option>
+              </select>
+              <p class="field-note">Pick the report that led to your mute or warning, if you know it.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="appealReason">Your explanation</label>
+              <textarea
+                id="appealReason"
+                name="appealReason"
+                rows="6"
+                placeholder="Explain why you think this mute or report was a mistake..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="rules-box">
+              <h3>Appeal Rules</h3>
+              <ul>
+                <li>Be clear and honest about what happened.</li>
+                <li>Vague appeals are harder for admins to approve.</li>
+                <li>False appeals may result in further action.</li>
+              </ul>
+
+              <label class="agree-row">
+                <input type="checkbox" id="agreeAppealRules" required />
+                <span>I understand submitting false appeals may result in further action.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit Appeal</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="history-card">
+        <div class="card-head center-head">
+          <h2>View Submitted Appeals</h2>
+          <span class="mini-pill">Passkey Only</span>
+        </div>
+
+        <div class="passkey-box redesigned-passkey-box">
+          <div class="passkey-head">
+            <p class="passkey-title">Unlock Appeals</p>
+            <p class="passkey-subtitle">Enter the admin passkey to reveal submitted appeals.</p>
+          </div>
+
+          <label for="appealPasskey" class="passkey-label">Passkey</label>
+
+          <div class="passkey-row redesigned-passkey-row">
+            <input
+              type="password"
+              id="appealPasskey"
+              name="appealPasskey"
+              class="passkey-input"
+              placeholder="Enter passkey"
+              autocomplete="off"
+            />
+            <button id="unlockAppealsBtn" class="btn-refresh passkey-btn" type="button">
+              Unlock
+            </button>
+          </div>
+
+          <label class="agree-row show-pass-row passkey-toggle">
+            <input type="checkbox" id="showAppealPasskey" />
+            <span>Show passkey</span>
+          </label>
+        </div>
+
+        <div id="appealsGateMessage" class="empty-state">
+          <p>Appeals are hidden. Enter the correct passkey to view them.</p>
+        </div>
+
+        <div id="appealsSection" class="d-none">
+          <div id="appealsList" class="reports-list">
+            <div class="empty-state">
+              <p>No appeals loaded yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/getCurrentURL.js" type="text/javascript"></script>
+  <script src="js/queryCmds.js" type="text/javascript"></script>
+  <script src="js/navbar.js" type="text/javascript"></script>
+  <script src="js/appeal.js" type="text/javascript"></script>
+</body>
+</html>

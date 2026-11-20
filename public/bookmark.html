@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Campus Collab — Bookmarks</title>
+
+  <link href="css/bookmark.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+
+<body>
+
+  <div id="navbar"></div>
+
+  <main>
+    <section class="page-container">
+
+      <!-- HEADER -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">
+            My <span class="highlight">Bookmarks</span> ⭐
+          </h1>
+          <p class="page-subtitle">
+            All your saved posts in one place
+          </p>
+        </div>
+
+        <!-- dynamically updated by JS -->
+        <div id="postCount"></div>
+      </div>
+
+      <!-- BOOKMARK GRID (JS WILL RENDER HERE) -->
+      <div class="posts-grid" id="bookmarkList"></div>
+
+    </section>
+  </main>
+
+  <footer>
+    Campus Collab —
+    <span>Save & revisit your favourite campus moments</span>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/queryCmds.js"></script>
+  <script src="js/getCurrentURL.js"></script>
+  <script src="js/bookmark.js"></script>
+  <script src="js/navbar.js" defer></script>
+
+</body>
+</html>

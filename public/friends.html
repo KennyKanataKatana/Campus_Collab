@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Friends</title>
+
+    <link rel="stylesheet" href="/css/friends.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+    <main class="friends-page">
+      <!-- TOP BAR -->
+
+      <div class="friends-topbar">
+        <div>
+          <h1 class="friends-title">Your Friends</h1>
+
+          <p class="friends-subtitle">Stay connected with your campus circle.</p>
+        </div>
+
+        <div style="display: flex; gap: 20px">
+          <button class="notification-btn" onclick="openNotificationModal()">
+            Requests
+
+            <span class="notification-count" id="pending-count"> 0 </span>
+          </button>
+
+          <button class="add-friend-btn" onclick="openSearchModal()">+ Add Friend</button>
+        </div>
+      </div>
+
+      <!-- FRIEND LIST -->
+
+      <div class="friends-container">
+        <div class="friends-header">
+          <h2 class="section-title">Your Friends</h2>
+
+          <span id="friend-count" class="friend-count-badge"> 0 Friends </span>
+        </div>
+
+        <div id="friends-container"></div>
+      </div>
+
+      <section class="suggested-section">
+        <h2 class="section-title">Suggested Friends</h2>
+
+        <div id="suggestions-container"></div>
+      </section>
+    </main>
+
+    <!-- SEARCH MODAL -->
+
+    <div id="search-modal" class="search-modal hidden">
+      <div class="search-modal-content">
+        <div class="modal-header">
+          <h2>Add Friends</h2>
+
+          <button
+            class="close-btn"
+            type="button"
+            onclick="closeSearchModal()"
+            aria-label="Close search modal"
+          >
+            &times;
+          </button>
+        </div>
+
+        <input
+          type="text"
+          id="search-user"
+          placeholder="Search student name..."
+          onkeyup="searchUsers()"
+        />
+
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <div id="notification-modal" class="notification-modal hidden">
+      <div class="notification-content">
+        <div class="modal-header">
+          <h2>Pending Requests</h2>
+
+          <button
+            class="close-btn"
+            type="button"
+            onclick="closeNotificationModal()"
+            aria-label="Close requests modal"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div id="requests-container"></div>
+      </div>
+    </div>
+
+    <!-- PROFILE MODAL -->
+
+    <div id="profile-modal" class="search-modal hidden">
+      <div class="search-modal-content">
+        <div class="modal-header">
+          <h2>Friend Profile</h2>
+
+          <button
+            class="close-btn"
+            type="button"
+            onclick="closeProfileModal()"
+            aria-label="Close profile modal"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div id="profile-content"></div>
+      </div>
+    </div>
+
+    <script src="/js/friends.js"></script>
+    <script src="/js/navbar.js" defer></script>
+  </body>
+</html>

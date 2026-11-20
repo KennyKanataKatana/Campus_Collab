@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Collab - Home</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="main-content">
+      <section class="top-section">
+        <div class="user-info">
+          <p class="welcome-label">Welcome back</p>
+          <h2 id="homepageUsername">Student User</h2>
+          <p id="homepageEmail">student@ichat.sp.edu.sg</p>
+        </div>
+
+        <div class="logo-container">
+          <div class="logo-placeholder"></div>
+          <div class="homepage-intro">
+            <h1>Campus Collab</h1>
+            <p>
+              View the hangouts you accepted, check in when you arrive, or cancel if your plans
+              change.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <div class="section-heading">
+        <h2 class="section-title">Accepted Posts</h2>
+        <p>These are the hangouts joined by your logged-in account.</p>
+      </div>
+
+      <section
+        id="somethingsTableBody"
+        class="posts-container"
+        data-testid="accepted-posts"
+      ></section>
+    </main>
+
+    <template id="somethingRowTemplate">
+      <article class="post-card" data-testid="accepted-post-card">
+        <div class="accepted-label">Accepted Hangout</div>
+        <h3 class="something-name">Hangout Post</h3>
+
+        <div class="post-info">
+          <p><strong>Post ID:</strong> <span class="something-id"></span></p>
+          <p><strong>Host:</strong> <span class="host-name"></span></p>
+          <p><strong>Location:</strong> <span class="location-name"></span></p>
+          <p>
+            <strong>Participants:</strong>
+            <span class="participant-count"></span>
+          </p>
+          <p>
+            <strong>Accepted On:</strong>
+            <span class="accepted-date"></span>
+          </p>
+        </div>
+
+        <div class="card-actions">
+          <a class="checkin-link" href="checkin.html">Go to Check-In</a>
+          <button class="delete-button" type="button">Cancel Accept</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="js/index.js"></script>
+    <script src="js/navbar.js" defer></script>
+  </body>
+</html>

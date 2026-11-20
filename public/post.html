@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Collab — Hangout</title>
+  <link href="css/post.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/navbar.css" />
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main>
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-title-wrap">
+          <h1 class="page-title"><span class="highlight">Hangout</span> Board</h1>
+          <p class="page-subtitle">Find people on campus to eat, study, or hang with</p>
+          <p id="postCount">Loading posts...</p>
+        </div>
+        <button class="btn-new-post" id="btnNewPost" type="button" onclick="openModal()">New Post</button>
+      </div>
+
+      <div class="login-banner" id="loginBanner">
+        You need an account to post! <a href="login.html">Log in</a> or <a href="register.html">Sign up</a> — it's free
+      </div>
+
+      <div class="filter-strip" id="filterStrip">
+        <button class="filter-btn active" data-cat="all" type="button" onclick="filterPosts('all', this)">All</button>
+        <button class="filter-btn" data-cat="SP Library" type="button" onclick="filterPosts('SP Library', this)">SP Library</button>
+        <button class="filter-btn" data-cat="SP Food Court 6" type="button" onclick="filterPosts('SP Food Court 6', this)">SP Food Court 6</button>
+        <button class="filter-btn" data-cat="SP Food Court 5" type="button" onclick="filterPosts('SP Food Court 5', this)">SP Food Court 5</button>
+        <button class="filter-btn" data-cat="SP Food Court 4" type="button" onclick="filterPosts('SP Food Court 4', this)">SP Food Court 4</button>
+        <button class="filter-btn" data-cat="SP Hilltop Heaven" type="button" onclick="filterPosts('SP Hilltop Heaven', this)">SP Hilltop Heaven</button>
+      </div>
+
+      <div class="posts-grid" id="postsGrid"></div>
+    </div>
+  </main>
+
+  <footer>
+    Campus Collab — <span>Connect, Eat & Explore</span> on Campus
+  </footer>
+
+  <div class="modal-overlay" id="postModal" onclick="handleOverlayClick(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 class="modal-title">New Hangout Post</h2>
+        <button class="btn-close-modal" type="button" onclick="closeModal()">X</button>
+      </div>
+
+      <form class="modal-form" id="postForm" novalidate>
+        <div class="field-group">
+          <label class="field-label" for="postTitle">Title</label>
+          <input class="field-input" type="text" id="postTitle" placeholder="e.g. Anyone up for ramen tonight?" maxlength="80" required />
+          <p class="char-counter"><span id="titleCount">0</span>/80</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Location</label>
+          <div class="cat-picker" id="catPicker">
+            <button type="button" class="cat-pick-btn" data-cat="SP Library" onclick="selectCat(this)">SP Library</button>
+            <button type="button" class="cat-pick-btn" data-cat="SP Food Court 6" onclick="selectCat(this)">SP Food Court 6</button>
+            <button type="button" class="cat-pick-btn" data-cat="SP Food Court 5" onclick="selectCat(this)">SP Food Court 5</button>
+            <button type="button" class="cat-pick-btn" data-cat="SP Food Court 4" onclick="selectCat(this)">SP Food Court 4</button>
+            <button type="button" class="cat-pick-btn" data-cat="SP Hilltop Heaven" onclick="selectCat(this)">SP Hilltop Heaven</button>
+          </div>
+          <input type="hidden" id="categoryInput" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="postDesc">Description</label>
+          <textarea class="field-textarea" id="postDesc" placeholder="Tell people when, where, what you're planning..." maxlength="400" required></textarea>
+          <p class="char-counter"><span id="descCount">0</span>/400</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="hangoutAt">Hangout date and time</label>
+          <input class="field-input" type="datetime-local" id="hangoutAt" required />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="maxParticipants">Maximum participants</label>
+          <input class="field-input" type="number" id="maxParticipants" min="2" max="100" value="5" step="1" required />
+          <p class="field-help">Enter a number from 2 to 100. This includes you as the post creator.</p>
+        </div>
+
+        <div class="modal-warning" id="modalWarning">
+          <p id="modalWarningText"></p>
+        </div>
+
+        <button type="submit" class="btn-submit-post">Post It!</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="participantsModal">
+    <div class="modal-box participants-modal-box" role="dialog" aria-modal="true" aria-labelledby="participantsModalTitle">
+      <div class="modal-header">
+        <div>
+          <p class="participants-modal-label">Hangout participants</p>
+          <h2 class="modal-title" id="participantsModalTitle">Participants</h2>
+        </div>
+
+        <button type="button" class="btn-close-modal" id="closeParticipantsModal" aria-label="Close participants">X</button>
+      </div>
+
+      <div class="participants-capacity-card">
+        <div class="participants-capacity-row">
+          <span id="participantsModalCount">Loading participant count...</span>
+          <span id="participantsModalSpots"></span>
+        </div>
+
+        <div class="participant-progress-track">
+          <div class="participant-progress-fill" id="participantsModalProgress"></div>
+        </div>
+
+        <p class="participants-waitlist-count" id="participantsWaitlistCount"></p>
+      </div>
+
+      <div class="participants-list" id="participantsList">
+        <div class="participants-empty">Loading participants...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/post.js"></script>
+  <script src="/js/navbar.js" defer></script>
+</body>
+</html>
